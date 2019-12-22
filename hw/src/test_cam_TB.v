@@ -58,6 +58,9 @@ module test_cam_TB;
 		.CAM_vsync(CAM_vsync), 
 		.CAM_href(CAM_href), 
 		.CAM_px_data(CAM_px_data)
+		/*.DP_RAM_addr_in(DP_RAM_addr_in),
+	   .DP_RAM_data_in(DP_RAM_data_in),
+	   .DP_RAM_regW(DP_RAM_regW)*/
 	);
 	reg img_generate=0;
 	initial begin
@@ -87,9 +90,9 @@ module test_cam_TB;
 	parameter BLACK_TAM_ROW=4;
 	
 	/*************************************************************************
-			INICIO DE SIMULACION DE SEÑALES DE LA CAMARA 	
+			INICIO DE SIMULACION DE SEALES DE LA CAMARA 	
 	**************************************************************************/
-	/*simulación de contador de pixeles para  general Href y vsync*/
+	/*simulacin de contador de pixeles para  general Href y vsync*/
 	initial forever  begin
 	//	CAM_px_data=~CAM_px_data;
 		@(posedge pclk) begin
@@ -106,7 +109,7 @@ module test_cam_TB;
 		end
 	end
 
-	/*simulación de la señal vsync generada por la camara*/	
+	/*simulacin de la seal vsync generada por la camara*/	
 	initial forever  begin
 		@(posedge pclk) begin 
 		if (img_generate==1) begin
@@ -120,7 +123,7 @@ module test_cam_TB;
 		end
 	end
 	
-	/*simulación de la señal href generada por la camara*/	
+	/*simulacin de la seal href generada por la camara*/	
 	initial forever  begin
 		@(negedge pclk) begin 
 		if (img_generate==1) begin
@@ -138,7 +141,7 @@ module test_cam_TB;
 
 
 	/*************************************************************************
-			FIN SIMULACIÒN DE SEÑALES DE LA CAMARA 	
+			FIN SIMULACIN DE SEALES DE LA CAMARA 	
 	**************************************************************************/
 	
 	/*************************************************************************
