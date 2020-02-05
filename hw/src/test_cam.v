@@ -21,6 +21,8 @@
 module test_cam(
     input wire clk,           // board clock: 32 MHz quacho 100 MHz nexys4 
     input wire rst,         	// reset button
+	 input wire boton_CAM,         	// reset button
+	 input wire boton_video,         	// reset button
 
 	// VGA input/output  
     output wire VGA_Hsync_n,  // horizontal sync output
@@ -42,14 +44,18 @@ module test_cam(
 	input wire CAM_href,
 	input wire [7:0] CAM_px_data,
 	
-	output DP_RAM_addr_in
+	//output DP_RAM_addr_in,
 	/*output DP_RAM_data_in,
-	output DP_RAM_regW*/	
-);
+	output DP_RAM_regW*/
+	
+	output wire [15:0] LEDs,
+	
+	input wire [2:0] switch
+ );
 
 // TAMAO DE ADQUISICIN DE LA CAMARA 
-parameter CAM_SCREEN_X = 176;
-parameter CAM_SCREEN_Y = 144;
+parameter CAM_SCREEN_X = 160;
+parameter CAM_SCREEN_Y = 120;
 
 localparam AW = 15; // LOG2(CAM_SCREEN_X*CAM_SCREEN_Y)
 localparam DW = 8;
@@ -67,7 +73,7 @@ wire clk24M;
 
 // Conexin dual por ram
 
-wire  [AW-1: 0] DP_RAM_addr_in;  
+wire  [AW-1: 0] DP_RAM_addr_in;  	
 wire  [DW-1: 0] DP_RAM_data_in;
 wire DP_RAM_regW;
 
@@ -127,10 +133,13 @@ clk24_25_nexys4
 		.vsync(CAM_vsync),
 		.href(CAM_href),
 		.px_data(CAM_px_data),
-
+		.option(switch),
+		.boton_CAM(boton_CAM),
+		.boton_video(boton_video),
 		.mem_px_addr(DP_RAM_addr_in),
 		.mem_px_data(DP_RAM_data_in),
-		.px_wr(DP_RAM_regW)
+		.px_wr(DP_RAM_regW),
+		.leds(LEDs)
    );
 
 /* ****************************************************************************
@@ -177,7 +186,7 @@ always @ (VGA_posX, VGA_posY) begin
 		if ((VGA_posX>CAM_SCREEN_X-1) || (VGA_posY>CAM_SCREEN_Y-1))
 			DP_RAM_addr_out=15'b111111111111111;
 		else
-			DP_RAM_addr_out=VGA_posX+VGA_posY*CAM_SCREEN_Y;
+			DP_RAM_addr_out=VGA_posX+VGA_posY*CAM_SCREEN_X;
 end
 
 endmodule

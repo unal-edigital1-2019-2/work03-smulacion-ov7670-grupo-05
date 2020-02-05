@@ -1,17 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2019-12-22T13:50:14</DateModified>
+  <DateModified>2020-02-05T11:12:15</DateModified>
   <ModuleName>test_cam</ModuleName>
-  <SummaryTimeStamp>2019-12-04T09:42:16</SummaryTimeStamp>
+  <SummaryTimeStamp>2020-01-30T17:56:03</SummaryTimeStamp>
   <SavedFilePath>/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/iseconfig/test_cam.xreport</SavedFilePath>
   <ImplementationReportsDirectory>/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/</ImplementationReportsDirectory>
   <DateInitialized>2019-11-04T13:14:13</DateInitialized>
-  <EnableMessageFiltering>false</EnableMessageFiltering>
+  <EnableMessageFiltering>true</EnableMessageFiltering>
  </header>
  <body>
   <viewgroup label="Design Overview" >
-   <view inputState="Unknown" program="implementation" ShowPartitionData="false" type="FPGASummary" file="test_cam_summary.html" label="Summary" >
+   <view inputState="Unknown" program="implementation" ExpandErrors="true" ShowPartitionData="false" ExpandConstraints="true" type="FPGASummary" file="test_cam_summary.html" label="Summary" ExpandClockNets="true" ExpandWarnings="true" >
     <toc-item title="Design Overview" target="Design Overview" />
     <toc-item title="Design Utilization Summary" target="Design Utilization Summary" />
     <toc-item title="Performance Summary" target="Performance Summary" />

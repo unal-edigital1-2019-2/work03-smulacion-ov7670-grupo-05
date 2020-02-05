@@ -31,6 +31,7 @@ module test_cam_TB;
 	reg CAM_vsync;
 	reg CAM_href;
 	reg [7:0] CAM_px_data;
+	reg CBtn;
 
 	// Outputs
 	wire VGA_Hsync_n;
@@ -57,14 +58,13 @@ module test_cam_TB;
 		.CAM_pclk(pclk), 
 		.CAM_vsync(CAM_vsync), 
 		.CAM_href(CAM_href), 
-		.CAM_px_data(CAM_px_data)
-		/*.DP_RAM_addr_in(DP_RAM_addr_in),
-	   .DP_RAM_data_in(DP_RAM_data_in),
-	   .DP_RAM_regW(DP_RAM_regW)*/
+		.CAM_px_data(CAM_px_data),
+		.CBtn(CBtn)
 	);
 	reg img_generate=0;
 	initial begin
 		// Initialize Inputs
+		CBtn = 1;
 		clk = 0;
 		rst = 1;
 		pclk = 0;
@@ -74,7 +74,8 @@ module test_cam_TB;
    	// Wait 100 ns for global reset to finish
 		#20;
 		rst = 0;
-		#1000000 img_generate=1;
+		#1000000;
+		img_generate=1;
 	end
 
 	always #0.5 clk  = ~clk;
@@ -84,15 +85,20 @@ module test_cam_TB;
 	reg [9:0]line_cnt=0;
 	reg [9:0]row_cnt=0;
 	
-	parameter TAM_LINE=320;	// es 160x2 debido a que son dos pixeles de RGB
-	parameter TAM_ROW=120;
+	reg [3:0] count = 0;
+	reg [15:0] color = 00000000;
+	reg [127:0] color_data = 128'b1111100000000000000001111110000011111000000000000000011111100000111110000000000000000111111000001111100000000000000001111110000011111000000000000000011111100000111110000000000000000111111000001111100000000000000001111110000011111000000000000000011111100000;
+	
+	parameter TAM_LINE=640;	// es 320x2 debido a que son dos pixeles de RGB
+	parameter TAM_ROW=240;
 	parameter BLACK_TAM_LINE=4;
 	parameter BLACK_TAM_ROW=4;
 	
 	/*************************************************************************
-			INICIO DE SIMULACION DE SEALES DE LA CAMARA 	
+			INICIO DE SIMULACION DE SE�'ALES DE LA CAMARA 	
 	**************************************************************************/
-	/*simulacin de contador de pixeles para  general Href y vsync*/
+	
+	/*simulación de contador de pixeles para  general Href y vsync*/
 	initial forever  begin
 	//	CAM_px_data=~CAM_px_data;
 		@(posedge pclk) begin
@@ -109,7 +115,7 @@ module test_cam_TB;
 		end
 	end
 
-	/*simulacin de la seal vsync generada por la camara*/	
+	/*simulación de la señal vsync generada por la camara*/	
 	initial forever  begin
 		@(posedge pclk) begin 
 		if (img_generate==1) begin
@@ -123,7 +129,7 @@ module test_cam_TB;
 		end
 	end
 	
-	/*simulacin de la seal href generada por la camara*/	
+	/*simulación de la señal href generada por la camara*/	
 	initial forever  begin
 		@(negedge pclk) begin 
 		if (img_generate==1) begin
@@ -138,10 +144,25 @@ module test_cam_TB;
 		end
 		end
 	end
-
+	
+	//SIMULACON CAMBIO DE COLORES BARRA
+	//A�adimos este ciclo para variar el color de CAM_
+	initial forever begin
+		@(negedge pclk) begin
+		if (img_generate==1 && CAM_href==1) begin
+			if(count==0) begin
+				color = color_data[127:112];
+				color_data = color_data*65536+color;
+			end
+			CAM_px_data = color[15:8];
+			color = color*256+CAM_px_data;
+			count=count+1;
+		end
+		end
+	end
 
 	/*************************************************************************
-			FIN SIMULACIN DE SEALES DE LA CAMARA 	
+			FIN SIMULACIÒN DE SEÑALES DE LA CAMARA 	
 	**************************************************************************/
 	
 	/*************************************************************************
@@ -164,4 +185,3 @@ module test_cam_TB;
 	end
 	
 endmodule
-

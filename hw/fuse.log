@@ -8,15 +8,15 @@ Analyzing Verilog file "/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/
 Analyzing Verilog file "/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/cam_read.v" into library work
 Analyzing Verilog file "/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/buffer_ram_dp.v" into library work
 Analyzing Verilog file "/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/test_cam.v" into library work
-WARNING:HDLCompiler:751 - "/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/test_cam.v" Line 70: Redeclaration of ansi port DP_RAM_addr_in is not allowed
 Analyzing Verilog file "/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/test_cam_TB.v" into library work
+WARNING:HDLCompiler:568 - "/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/test_cam_TB.v" Line 90: Constant value is truncated to fit in <128> bits.
 Analyzing Verilog file "/opt/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
-WARNING:HDLCompiler:1016 - "/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/test_cam_TB.v" Line 46: Port DP_RAM_addr_in is not connected to this instance
-WARNING:HDLCompiler:1016 - "/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/test_cam.v" Line 111: Port LOCKED is not connected to this instance
+WARNING:HDLCompiler:1016 - "/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/test_cam_TB.v" Line 47: Port LEDs is not connected to this instance
+WARNING:HDLCompiler:1016 - "/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/test_cam.v" Line 115: Port LOCKED is not connected to this instance
 Completed static elaboration
-Fuse Memory Usage: 98292 KB
-Fuse CPU Usage: 1140 ms
+Fuse Memory Usage: 98316 KB
+Fuse CPU Usage: 1160 ms
 Compiling module BUFG
 Compiling module MMCME2_ADV(CLKOUT1_DIVIDE=50,CLK...
 Compiling module clk24_25_nexys4
@@ -30,6 +30,6 @@ Time Resolution for simulation is 1ps.
 Waiting for 2 sub-compilation(s) to finish...
 Compiled 9 Verilog Units
 Built simulation executable /home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/test_cam_TB_isim_beh.exe
-Fuse Memory Usage: 671052 KB
-Fuse CPU Usage: 1260 ms
-GCC CPU Usage: 3360 ms
+Fuse Memory Usage: 671092 KB
+Fuse CPU Usage: 1290 ms
+GCC CPU Usage: 3690 ms
