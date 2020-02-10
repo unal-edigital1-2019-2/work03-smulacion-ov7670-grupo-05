@@ -32,12 +32,12 @@ void set_cam_RGB565_QCIF(){
  OV7670_write(0x40,0xD0);      //COM15: Set RGB 565
 
  //Color Bar
- OV7670_write(0x42, 0x08); 
- OV7670_write(0x12, 0x0E);
+ //OV7670_write(0x42, 0x08); 
+ //OV7670_write(0x12, 0x0E);
 
 
  //Registros Mágicos 
-OV7670_write(0x3A,0x04);
+ OV7670_write(0x3A,0x04);
 
  OV7670_write(0x14,0x18); // control de ganancia 
 

@@ -19,10 +19,10 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module cam_read #(
-		parameter AW = 15 // Cantidad de bits  de la direccin 
+		parameter AW = 17 // Cantidad de bits  de la direccin 
 		)(
-		input pclk,
 		input rst,
+		input pclk,		
 		input vsync,
 		input href,
 		input [7:0] px_data,
@@ -98,7 +98,7 @@ module cam_read #(
 				begin
 					mem_px_data[1:0] = {px_data[4:3]};
 					px_wr = 1;
-					if(mem_px_addr < 19200)
+					if(mem_px_addr < 76800)
 						mem_px_addr = mem_px_addr + 1;
 					cont_pixel = cont_pixel +1;
 					
