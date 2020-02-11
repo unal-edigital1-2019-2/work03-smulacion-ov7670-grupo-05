@@ -25,7 +25,7 @@ void set_cam_RGB565_QCIF(){
 
   delay(100);
  
- OV7670_write(0x12, 0x0C);  //COM7: Set QCIF and RGB
+ OV7670_write(0x12, 0x24);  //COM7: Set QCIF and RGB
  OV7670_write(0x11, 0xC0);       //CLKR: Set internal clock to use external clock
  OV7670_write(0x0C, 0x08);       //COM3: Enable Scaler
  OV7670_write(0x3E, 0x00);
@@ -176,6 +176,7 @@ void set_color_matrix(){
     OV7670_write(0x52, 0x22);
     OV7670_write(0x53, 0x5e);
     OV7670_write(0x54, 0x80);
+    OV7670_write(0x55, 0x0A);
     OV7670_write(0x56, 0x40);
     OV7670_write(0x58, 0x9e);
     OV7670_write(0x59, 0x88);

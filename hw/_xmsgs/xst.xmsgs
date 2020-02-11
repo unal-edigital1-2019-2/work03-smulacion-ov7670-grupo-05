@@ -5,7 +5,7 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="1016" delta="old" >"/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/test_cam.v" Line 117: Port <arg fmt="%s" index="1">LOCKED</arg> is not connected to this instance
+<msg type="warning" file="HDLCompiler" num="1016" delta="old" >"/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/test_cam.v" Line 111: Port <arg fmt="%s" index="1">LOCKED</arg> is not connected to this instance
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/PLL/clk24_25_nexys4.v" Line 132: Assignment to <arg fmt="%s" index="1">clkfboutb_unused</arg> ignored, since the identifier is never used
@@ -80,10 +80,10 @@
 <msg type="warning" file="HDLCompiler" num="413" delta="old" >"/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/VGA_driver.v" Line 72: Result of <arg fmt="%d" index="1">11</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">10</arg>-bit target.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="413" delta="old" >"/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/test_cam.v" Line 189: Result of <arg fmt="%d" index="1">19</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">17</arg>-bit target.
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/test_cam.v" Line 185: Result of <arg fmt="%d" index="1">19</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">17</arg>-bit target.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/test_cam.v</arg>&quot; line <arg fmt="%s" index="2">118</arg>: Output port &lt;<arg fmt="%s" index="3">LOCKED</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">clk25_24</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/test_cam.v</arg>&quot; line <arg fmt="%s" index="2">112</arg>: Output port &lt;<arg fmt="%s" index="3">LOCKED</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">clk25_24</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
 <msg type="info" file="Xst" num="3226" delta="old" >The RAM &lt;<arg fmt="%s" index="1">DP_RAM/Mram_ram</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>

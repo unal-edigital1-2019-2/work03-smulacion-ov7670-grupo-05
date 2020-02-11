@@ -12,7 +12,7 @@ Target Device  : xc7a100t
 Target Package : csg324
 Target Speed   : -3
 Mapper Version : artix7 -- $Revision: 1.55 $
-Mapped Date    : Mon Feb 10 12:37:37 2020
+Mapped Date    : Mon Feb 10 19:08:19 2020
 
 Mapping design into LUTs...
 Running directed packing...
@@ -28,10 +28,10 @@ Phase 1.1  Initial Placement Analysis
 Phase 1.1  Initial Placement Analysis (Checksum:5fb20459) REAL time: 21 secs 
 
 Phase 2.7  Design Feasibility Check
-Phase 2.7  Design Feasibility Check (Checksum:5fb20459) REAL time: 22 secs 
+Phase 2.7  Design Feasibility Check (Checksum:5fb20459) REAL time: 21 secs 
 
 Phase 3.31  Local Placement Optimization
-Phase 3.31  Local Placement Optimization (Checksum:5fb20459) REAL time: 22 secs 
+Phase 3.31  Local Placement Optimization (Checksum:5fb20459) REAL time: 21 secs 
 
 Phase 4.2  Initial Placement for Architecture Specific Features
 
@@ -50,16 +50,16 @@ WARNING:Place:1399 - A clock IOB / BUFGCTRL clock component pair have been found
    discouraged as it may lead to very poor timing results. It is recommended
    that this error condition be corrected in the design.
 Phase 4.2  Initial Placement for Architecture Specific Features
-(Checksum:6797d1a7) REAL time: 25 secs 
+(Checksum:6797d1a7) REAL time: 24 secs 
 
 Phase 5.30  Global Clock Region Assignment
-Phase 5.30  Global Clock Region Assignment (Checksum:6797d1a7) REAL time: 25 secs 
+Phase 5.30  Global Clock Region Assignment (Checksum:6797d1a7) REAL time: 24 secs 
 
 Phase 6.3  Local Placement Optimization
-Phase 6.3  Local Placement Optimization (Checksum:6797d1a7) REAL time: 25 secs 
+Phase 6.3  Local Placement Optimization (Checksum:6797d1a7) REAL time: 24 secs 
 
 Phase 7.5  Local Placement Optimization
-Phase 7.5  Local Placement Optimization (Checksum:6797d1a7) REAL time: 25 secs 
+Phase 7.5  Local Placement Optimization (Checksum:6797d1a7) REAL time: 24 secs 
 
 Phase 8.8  Global Placement
 ........................................
@@ -170,8 +170,8 @@ Specific Feature Utilization:
 Average Fanout of Non-Clock Nets:                9.70
 
 Peak Memory Usage:  1239 MB
-Total REAL time to MAP completion:  31 secs 
-Total CPU time to MAP completion:   31 secs 
+Total REAL time to MAP completion:  30 secs 
+Total CPU time to MAP completion:   30 secs 
 
 Mapping completed.
 See MAP report file "test_cam_map.mrp" for details.

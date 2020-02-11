@@ -122,7 +122,7 @@ Parsing module <test_cam>.
 =========================================================================
 *                            HDL Elaboration                            *
 =========================================================================
-WARNING:HDLCompiler:1016 - "/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/test_cam.v" Line 117: Port LOCKED is not connected to this instance
+WARNING:HDLCompiler:1016 - "/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/test_cam.v" Line 111: Port LOCKED is not connected to this instance
 
 Elaborating module <test_cam>.
 
@@ -162,7 +162,7 @@ WARNING:HDLCompiler:1670 - "/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/
 Elaborating module <VGA_Driver640x480>.
 WARNING:HDLCompiler:413 - "/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/VGA_driver.v" Line 68: Result of 10-bit expression is truncated to fit in 9-bit target.
 WARNING:HDLCompiler:413 - "/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/VGA_driver.v" Line 72: Result of 11-bit expression is truncated to fit in 10-bit target.
-WARNING:HDLCompiler:413 - "/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/test_cam.v" Line 189: Result of 19-bit expression is truncated to fit in 17-bit target.
+WARNING:HDLCompiler:413 - "/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/test_cam.v" Line 185: Result of 19-bit expression is truncated to fit in 17-bit target.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -172,11 +172,11 @@ Synthesizing Unit <test_cam>.
     Related source file is "/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/test_cam.v".
         CAM_SCREEN_X = 320
         CAM_SCREEN_Y = 240
-INFO:Xst:3210 - "/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/test_cam.v" line 118: Output port <LOCKED> of the instance <clk25_24> is unconnected or connected to loadless signal.
-    Found 18-bit adder for signal <n0025> created at line 189.
-    Found 9x9-bit multiplier for signal <n0031> created at line 189.
-    Found 10-bit comparator greater for signal <GND_1_o_VGA_posX[9]_LessThan_4_o> created at line 186
-    Found 9-bit comparator greater for signal <GND_1_o_VGA_posY[8]_LessThan_5_o> created at line 186
+INFO:Xst:3210 - "/home/elizabeth/work03-smulacion-ov7670-grupo-05/hw/src/test_cam.v" line 112: Output port <LOCKED> of the instance <clk25_24> is unconnected or connected to loadless signal.
+    Found 18-bit adder for signal <n0025> created at line 185.
+    Found 9x9-bit multiplier for signal <n0031> created at line 185.
+    Found 10-bit comparator greater for signal <GND_1_o_VGA_posX[9]_LessThan_4_o> created at line 182
+    Found 9-bit comparator greater for signal <GND_1_o_VGA_posY[8]_LessThan_5_o> created at line 182
     Summary:
 	inferred   1 Multiplier(s).
 	inferred   1 Adder/Subtractor(s).
@@ -756,12 +756,12 @@ clk25_24/clkout0|    3.224|         |         |         |
 
 
 Total REAL time to Xst completion: 26.00 secs
-Total CPU time to Xst completion: 23.81 secs
+Total CPU time to Xst completion: 24.12 secs
  
 --> 
 
 
-Total memory usage is 525472 kilobytes
+Total memory usage is 525468 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   26 (   0 filtered)

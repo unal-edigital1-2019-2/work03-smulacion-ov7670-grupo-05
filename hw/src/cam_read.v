@@ -21,52 +21,51 @@
 module cam_read #(
 		parameter AW = 17 // Cantidad de bits  de la direccin 
 		)(
-		input rst,
-		input pclk,		
-		input vsync,
-		input href,
-		input [7:0] px_data,
-		input [2:0] option,
-		input boton_CAM,
-		input boton_video,
+		input rst,					// Reset
+		input pclk,					// Sennal PCLK de la camara
+		input vsync,				// Sennal VSYNC
+		input href,					// Sennal HREF
+		input [7:0] px_data,		// Sennal D - datos
+		input [2:0] option,		// Controla el valor de leds
+		input boton_CAM,			// Boton para tomar foto
+		input boton_video,		// Boton para volver a video
 
-		output reg [AW-1:0] mem_px_addr = 0,
-		output reg [7:0] mem_px_data = 0,
-		output reg px_wr = 0,
-		output reg [15:0] leds
+		output reg [AW-1:0] mem_px_addr = 0,		// Direccion de entrada (escritura)
+		output reg [7:0] mem_px_data = 0,			// Dato de entrada
+		output reg px_wr = 0,							// Control de escritura
+		output reg [15:0] leds							// Guarda el valor del contador
    );
 	
-	reg [2:0] fsm_state=1;
-	reg pas_vsync = 0;
-	reg cont = 1'b0;
-	reg [15:0] cont_href=16'b0000000000000000;
-	reg [15:0] pas_href=16'b0000000000000000;
-	reg [15:0] cont_pixel=16'b0000000000000000;
-	reg [15:0] cont_pclk=16'b0000000000000000;
+	reg [2:0] fsm_state=1;								// Controla la maquina de estados finitos
+	reg pas_vsync = 0;									// Valor anterior de VSYNC
+	reg cont = 1'b0;										// Controla la captura de datos
+	reg [15:0] cont_href=16'b0000000000000000;	// Contador de HREF
+	reg [15:0] pas_href=16'b0000000000000000;		// Valor anterior de HREF
+	reg [15:0] cont_pixel=16'b0000000000000000;	// Contador de pixeles por linea
+	reg [15:0] cont_pclk=16'b0000000000000000;	// Contador PCLKs totales
 	
-	always@(posedge pclk) begin
+	always@(posedge pclk) begin						// Flancos de subida PCLK
 		
 		if (rst)
 		begin
-			mem_px_addr=0;
-			leds[15:0]=16'b0000000000000000;
-			cont_href[15:0]=16'b0000000000000000;
-			fsm_state=1;
-			pas_vsync=0;
+			mem_px_addr=0;									// Reinicia el valor de la direccion
+			leds[15:0]=16'b0000000000000000;			// Reinicia leds
+			cont_href[15:0]=16'b0000000000000000;	// Reinicia contador HREF
+			fsm_state=1;									// Envía al primer estado
+			pas_vsync=0;									// Asigna cero al valor anterior de VSYNC
 			
 		end else 
-				
-		case(fsm_state) 
-		//3'b000:		// On/off
-			//if (mem_px_addr == 0) fsm_state=1;
+		
+		// Maquina de estados finitos		
+		case(fsm_state) 					
 			
-		1:		// Precaptura de datos
+		1:		// Valores iniciales
 			begin
 				cont_href[15:0]=16'h0000;
 				mem_px_addr=0;
 				if(pas_vsync && !vsync) fsm_state=2;
 			end
-		2:		// Lineas horizontales
+		2:		// Contador HREF
 			begin
 				if(!pas_href && href) begin
 						cont_href = cont_href +1;
@@ -84,7 +83,7 @@ module cam_read #(
 						fsm_state = 4;
 			end
 			
-		3:		// Pixeles ++
+		3:		// Captura de datos
 		begin
 			if(href) begin  
 				// contador de pixeles
